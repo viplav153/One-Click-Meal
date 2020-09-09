@@ -1,0 +1,125 @@
+{% load static %}
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Register</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- <link rel="manifest" href="site.webmanifest"> -->
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'order/img/unnamed.png' %}">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{% static 'order/css/qwe.css'%}" type="text/css">
+        <!-- CSS here -->
+        <link rel="stylesheet" href="{% static 'order/css/bootstrap.min.css' %}">
+        
+        <link rel="stylesheet" href="{% static 'order/css/style.css' %}">
+        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    </head>
+    <body>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="/order">Home</a></li>
+                                        <li><a href="Menu.html">Menu</a></li>
+                                        
+                                        <li><a href="/order/login">Login</a>
+                                        </li>
+                                        <li><a  class="active" href="#">Register</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="index.html">
+                                    <img src="{% static 'order/img/unnamed.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-5 d-none d-lg-block">
+                            <div class="book_room">
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="book_btn d-none d-xl-block">
+                                    <a class="#" href="#">1234567890</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-xl-9 col-md-9 col-md-12">
+                            <div class="slider_text text-center">
+                                <form action="register" method="post">
+                                    {% csrf_token %}
+                                    <label for="f_name">First Name:</label>
+                                    <input type="text" id="f_name" placeholder="First" name="first_name" required><br /><br />
+                                    <label for="l_name">Last Name:</label>
+                                    <input type="text" id="l_name" name="last_name" placeholder="Last" required><br /><br />
+                                    <label for="number">Phone Number:</label>
+                                    <input type="number" id="number" placeholder="Phone number" name="number" minlength="10" maxlength="12" required><br /><br />
+                                    <label for="username">Username</label>
+                                    <input type="text" id="l_name" name="username" placeholder="username" required><br /><br />
+                                    <label for="mail">Email Address:</label>
+                                    <input type="email" id="mail" name="email" placeholder="Email address" required><br /><br />
+                                    <label for="pass">Enter Password:</label>
+                                    <input type="password" id="pass" name="password" placeholder="Password" required><br /><br />
+                                    <label for="confirm">Confirm Password:</label>
+                                    <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required><br /><br />
+                                    <input type="submit" value="Sign Up" id="butt">
+                                </form>
+                                <div>
+                                    {% for message in messages%}
+                                    <h5> {{ message }}</h5>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
