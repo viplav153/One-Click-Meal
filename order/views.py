@@ -15,7 +15,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect (request, 'order/')
+            return render (request, 'index.html')
         else:
             messages.info(request, 'Username or password incorrect')
             return redirect('/order/login')
@@ -52,3 +52,16 @@ def register(request):
         return redirect('/order')
     else:
         return render(request, 'register.html',{})
+
+def logout(request):
+    auth.logout(request)
+    return render(request, 'index.html')
+
+def veg(request):
+    return render(request, 'veg.html')
+
+def nonveg(request):
+    return render(request, 'nonveg.html')
+
+def vegan(request):
+    return render(request, 'vegan.html')
