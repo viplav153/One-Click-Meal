@@ -42,7 +42,7 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="#">home</a></li>
+                                        <li><a class="active" href="">home</a></li>
                                         <li><a href="#men">Menu</a></li>
                                         {% if user.is_authenticated %}
                                         <li>Hey, {{ user.first_name }}</li>
@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {% comment %} <div class="row">
                 <div class="col-xl-6 col-md-6 col-lg-6">
                     <div class="single_delicious d-flex align-items-center">
                         <div class="thumb">
@@ -260,7 +260,7 @@
                         <a class="boxed-btn5" href="Menu.html">More Items</a>
                     </div>
                 </div>
-            </div>
+            </div> {% endcomment %}
         </div>
     </div>
     <!-- features_room_startt -->
@@ -274,7 +274,11 @@
                                 <span>₹50-₹500</span>
                                 <h3>Vegetarian</h3>
                                 <p>Great way to make your business appear trust <br> and relevant.</p>
+                                {% if user.is_authenticated %}
                                 <a href="veg.html" class="boxed-btn3">Order Now</a>
+                                {% else %}
+                                <div class="boxed-btn2">Login to Order</div>
+                                {% endif %}
                             </div>
                             
                         </div>
@@ -288,7 +292,11 @@
                                 <span>₹100-₹1000</span>
                                 <h3>Non-Vegetarian</h3>
                                 <p>Great way to make your business appear trust <br> and relevant.</p>
+                                {% if user.is_authenticated %}
                                 <a href="nonveg.html" class="boxed-btn3">Order Now</a>
+                                {% else %}
+                                <div class="boxed-btn2">Login to Order</div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -301,7 +309,11 @@
                                 <span>₹20-₹500</span>
                                 <h3>Vegan</h3>
                                 <p>Great way to make your business appear trust <br> and relevant.</p>
+                                {% if user.is_authenticated %}
                                 <a href="vegan.html" class="boxed-btn3">Order Now</a>
+                                {% else %}
+                                <div class="boxed-btn2">Login to Order</div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -615,7 +627,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'order/js/mail-script.js' %}"></script>
 
     <script src="{% static 'order/js/main.js' %}"></script>
-
+    
 </body>
 
 </html>

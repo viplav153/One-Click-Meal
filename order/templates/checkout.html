@@ -1,0 +1,230 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Checkout- One ClickMeal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'order/img/Artboard 1@3x.png' %}">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'order/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'order/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid p-0">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a  href="index.html">home</a></li>
+                                        <li><a class="active" href="Menu.html">Menu</a></li>
+                                        
+                                           
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo-img">
+                                <a href="index.html">
+                                    <img src="{% static 'order/img/Artboard 1 register.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-5 d-none d-lg-block">
+                            <div class="book_room">
+                                <div class="socail_links">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="book_btn d-none d-xl-block">
+                                    <a class="#" href="#">+10 367 453 7382</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="bradcam_area breadcam_bg overlay">
+        <h3>Checkout</h3>
+    </div>
+    <!-- bradcam_area_end -->
+
+    <!-- best_burgers_area_start  -->
+    <div class="best_burgers_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section_title text-center mb-80">
+                        <span>Proceed to Purchase</span>
+                        <h3>Your Items</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "container">
+        <div class="col">
+            <div >
+                <ul class="list-group" id="items">
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="col my-2">
+        <div class="section_title text-center">
+            <h3>Enter Delivery Address and Details</h3>
+        </div>
+            <form method="post" action="/order/checkout">{% csrf_token %}
+            <input type="hidden" id="itemsJson" name="itemsJson">
+                <div class="form-row">
+                    
+                    <div class="form-group col-md-6">
+                    <label for="inputname">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="address1" name="address1" placeholder="1234 Main St">
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Address Line 2</label>
+                    <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputcontact">Contact Number</label>
+                    <input type="number" class="form-control" id="contact_no" name="contact_no">
+                    </div>
+                    <div class="form-group col-md-3">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="city" name="city" placeholder="City">
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <input type="text" class="form-control" id="state" name="state" placeholder="State">
+                    </div>
+                    <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="number" class="form-control" id="zip_code" name="zip_code">
+                    </div>
+                    
+                </div>
+                
+                <button type="submit" class="boxed-btn3">Place Order</button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'order/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'order/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'order/js/popper.min.js' %}"></script>
+    <script src="{% static 'order/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'order/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'order/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'order/js/ajax-form.js' %}"></script>
+    <script src="{% static 'order/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'order/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'order/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'order/js/scrollIt.js' %}"></script>
+    <script src="{% static 'order/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'order/js/wow.min.js' %}"></script>
+    <script src="{% static 'order/js/nice-select.min.js' %}"></script>
+    <script src="{% static 'order/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'order/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'order/js/plugins.js' %}"></script>
+
+    <!--contact js-->
+    <script src="{% static 'order/js/contact.js' %}"></script>
+    <script src="{% static 'order/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'order/js/jquery.form.js' %}"></script>
+    <script src="{% static 'order/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'order/js/mail-script.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="{% static 'order/js/main.js' %}"></script>
+    <script>
+        if(localStorage.getItem('cart') == null){
+            var cart = {};
+        }
+        else{
+            cart = JSON.parse(localStorage.getItem('cart'));
+        }
+        console.log(cart);
+        for(var item in cart){
+            let name = cart[item][1];
+            let qty = cart[item][0];
+            mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${name}
+                        <span class="badge badge-primary badge-pill">${qty}</span>
+                    </li>`
+
+            $('#items').append(mystr);
+        }
+        $('#itemsJson').val(JSON.stringify(cart));
+        {% if thank %}
+        alert('Your Order has been Placed. Order ID {{id}}');
+        
+        localStorage.clear();
+        document.location = "/order";
+        {% endif %}
+    </script>
+</body>
+
+</html>
