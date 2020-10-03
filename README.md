@@ -1,5 +1,5 @@
 # One-Click-Meal
-Zomato
+project made by Shashank Rana.
 
 Features
 Django 2.0+
